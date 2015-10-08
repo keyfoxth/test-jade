@@ -1,0 +1,73 @@
+p Hello, jade.
+p
+  | Good morning,
+  | world.
+p.
+  Have a
+  nice day.
+
+- console.log('Hello');
+- var w = 'world';
+p Hello, #{w}.
+p #{s}, #{w}.
+
+- var user = { description: 'I like jade.' }
+- if (user.description)
+    h2 description
+    p.description #{user.description}
+- else
+    h2 description
+    p.description no description
+
+- var user = { name: 'Alan', isVip: false }
+unless user.isVip
+  p Dear #{user.name}, you are not VIP.
+
+- var arr = ['Key', 'Foxth']
+ul
+  - for (var i = 0; i < arr.length; ++i){
+    li Hello, #{arr[i]}.
+  - }
+
+ul
+  each val, index in ['Key', 'Foxth']
+    li= index + ': ' + val
+
+ul
+  each val, index in {1: 'Key', 2: 'Foxth'}
+    li #{index + ': ' + val}
+
+- var friends = 10
+case friends
+  when 0: p You have no friend.
+  when 1: p You have a friend.
+  default: p You have #{friends} friends.
+
+mixin list
+  ul
+    li Key
+    li Foxth
++list()
++list()
+
+mixin pets(pets)
+  ul.pets
+    - each pet in pets
+      li #{pet}
++pets(['cat', 'dog', 'pig'])
+
+mixin article(title)
+  .article
+    .article-wrapper
+      h1 #{title}
+      if block
+        block
+      else
+        p There is no thing here.
++article('Hello, world.')
++article('Hello, jade.')
+  p Yes, I like jade.
+
+mixin link(href, name)
+  a(class != attributes.class, href = href) #{name}
++link('/Key', 'Foxth')(class = 'btn')
