@@ -1,0 +1,27 @@
+h2 attributes
+
+a.button(href='google.com') Google
+
+- var authenticated = true
+p #{authenticated ? 'authed' : 'anon'}
+
+input(
+  type='checkbox'
+  name='agreement'
+  checked
+)
+
+div(escaped="<code>") escaped
+div(unescaped!="<code>") unescaped
+
+.style(style={color: 'red', background: 'green'}) style
+
+- var classes = ['foo', 'bar', 'baz']
+a.bing(class=classes class=['goo']) class
+
+-var currentUrl = '/about'
+a(class={active: currentUrl === '/'} href='/') Home
+a(class={active: currentUrl === '/about'} href='/about') About
+
+- var attributes = {'fata-foo': 'bar'};
+div#foo(data-bar="foo")&attributes(attributes) &attributes
