@@ -1,0 +1,18 @@
+h2 conditionals
+
+- var user = { description: 'Key Foxth' }
+- var authorised = false
+#user
+  h4 Description
+  if user.description
+    p.description #{user.description}
+  else if authorised
+    p.description
+      | User has no description,
+      | why not add one...
+  else
+    p.description User has no description.
+
+- var peop = { name: 'Keyfoxth', isAnonymous: false }
+unless peop.isAnonymous
+  p You're logged in as #{peop.name}.
