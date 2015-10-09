@@ -1,0 +1,22 @@
+h2 interpolation
+
+- var title = "On Dogs: Man's Bast Friend."
+- var author = "Enlore"
+- var theGreat = "<span>escape!</span>"
+h4= title
+p Written with love by #{author}.
+p This will be safe: #{theGreat}
+p This will be safe:
+  span  #{theGreat}
+
+- var msg = "not my inside voice"
+p This is #{msg.toUpperCase()}.
+
+- var riskyBusiness = "<em>Some of girls are wearing my mother's clothing.</em>"
+.quote
+  p Joel: !{riskyBusiness}
+
+p
+  | If you take a look at this page's source #[a(target="_blank", href="https://github.com/jadejs/jade/blob/master/docs/views/reference/interpolation.jade") on GitHub],
+  | you'll see several places where the tag interpolation operator is
+  | used, like so.
